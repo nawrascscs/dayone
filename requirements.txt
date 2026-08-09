@@ -1,0 +1,7 @@
+Flask>=3.0
+Flask-SQLAlchemy>=3.0
+Flask-Migrate>=4.0
+Flask-JWT-Extended>=4.0
+passlib[bcrypt]>=1.7
+psycopg2-binary>=2.9
+python-dotenv>=1.0

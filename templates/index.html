@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero container">
+    <div>
+        <h1>Learn skills. Build profiles. Find courses.</h1>
+        <p>Day One helps learners connect their skills with recommended courses and grow their career path.</p>
+        <div class="cta-buttons" id="home-cta-buttons">
+            <a class="button primary" href="/register">Create Account</a>
+            <a class="button secondary" href="/login">Login</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <div class="card">
+            <h2>Sample profile</h2>
+            <ul>
+                <li>Python - Intermediate</li>
+                <li>Data Analysis - Beginner</li>
+                <li>Machine Learning - Advanced</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="features container">
+    <div class="feature-card">
+        <h3>Track your skills</h3>
+        <p>Register skill strengths and keep your profile up to date.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Connect with courses</h3>
+        <p>Match learning opportunities to your experience and goals.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Secure authentication</h3>
+        <p>Login with JWT tokens and protect profile access.</p>
+    </div>
+</section>
+{% endblock %}

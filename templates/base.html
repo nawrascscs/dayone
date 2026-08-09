@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day One Learning Hub</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <script src="/static/js/app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="/">Day One</a>
+            <nav>
+                <a id="nav-home" href="/">Home</a>
+                <a id="nav-register" href="/register">Register</a>
+                <a id="nav-login" href="/login">Login</a>
+                <a id="nav-profile" href="/profile">Profile</a>
+                <button id="nav-logout" class="button secondary" type="button">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Day One Learning. Built with Flask and PostgreSQL.</p>
+    </footer>
+</body>
+</html>

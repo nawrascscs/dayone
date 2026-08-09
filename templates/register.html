@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="auth-page container">
+    <div class="auth-panel">
+        <h1>Create your account</h1>
+        <p>Register with your profile information and skills.</p>
+        <form id="register-form" action="/api/auth/register" method="post">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required />
+
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" inputmode="numeric" pattern="\d{10}" maxlength="10" placeholder="1234567890" />
+
+            <label for="age">Age</label>
+            <input id="age" name="age" type="number" min="10" max="110" />
+
+            <label for="major">Major</label>
+            <input id="major" name="major" type="text" />
+
+            <div class="skill-section">
+                <div class="skill-section-header">
+                    <label>Programming Skills</label>
+                    <span class="skill-help">Select your languages and choose your proficiency.</span>
+                </div>
+
+                <div class="skill-grid">
+                    <div class="skill-row">
+                        <label><input type="checkbox" class="skill-checkbox" value="HTML" /> HTML</label>
+                        <select class="skill-level" data-skill="HTML">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="skill-row">
+                        <label><input type="checkbox" class="skill-checkbox" value="CSS" /> CSS</label>
+                        <select class="skill-level" data-skill="CSS">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="skill-row">
+                        <label><input type="checkbox" class="skill-checkbox" value="Java" /> Java</label>
+                        <select class="skill-level" data-skill="Java">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="skill-row">
+                        <label><input type="checkbox" class="skill-checkbox" value="JavaScript" /> JavaScript</label>
+                        <select class="skill-level" data-skill="JavaScript">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="skill-row">
+                        <label><input type="checkbox" class="skill-checkbox" value="C" /> C</label>
+                        <select class="skill-level" data-skill="C">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="skill-row">
+                        <label><input type="checkbox" class="skill-checkbox" value="C++" /> C++</label>
+                        <select class="skill-level" data-skill="C++">
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+                <input type="hidden" id="skills-input" name="skills" value="[]" />
+            </div>
+
+            <button class="button primary" type="submit">Register</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

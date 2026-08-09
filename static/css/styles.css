@@ -1,0 +1,254 @@
+:root {
+    --bg: #f9fafb;
+    --surface: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1120px, 100% - 2rem);
+    margin: 0 auto;
+}
+
+.site-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.brand {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+nav a {
+    margin-left: 1.25rem;
+    color: var(--muted);
+}
+
+.page-content {
+    padding: 3rem 0;
+}
+
+.hero {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 1rem;
+}
+
+.hero p {
+    max-width: 40rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.95rem 1.4rem;
+    border-radius: 0.75rem;
+    border: 1px solid transparent;
+    font-weight: 600;
+}
+
+.button.primary {
+    background: var(--primary);
+    color: white;
+}
+
+.button.secondary {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.feature-card,
+.auth-panel,
+.profile-panel,
+.hero-image .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.feature-card h3,
+.auth-panel h1,
+.profile-panel h1,
+.hero-image h2 {
+    margin-top: 0;
+}
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+}
+
+.auth-panel {
+    width: min(520px, 100%);
+}
+
+.auth-panel label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.auth-panel input,
+.auth-panel textarea,
+.auth-panel select {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.95rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    font-size: 1rem;
+}
+
+.skill-section {
+    margin-top: 1.5rem;
+}
+
+.skill-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skill-help {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.skill-input-row {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: 1.5fr 1fr auto;
+    align-items: end;
+    margin-top: 0.75rem;
+}
+
+.skill-input-row input,
+.skill-input-row select {
+    width: 100%;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+.skill-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: #f8fafc;
+    margin-top: 0.75rem;
+}
+
+.skill-remove-button {
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.skill-error {
+    color: #b91c1c;
+    margin-top: 0.5rem;
+    min-height: 1.2rem;
+}
+
+@media (max-width: 680px) {
+    .skill-input-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.profile-page {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-panel {
+    width: min(720px, 100%);
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image .card {
+    width: 100%;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    color: var(--muted);
+}
+
+@media (max-width: 860px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
