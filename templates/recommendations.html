@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/courses.css" />
+{% endblock %}
+
+{% block content %}
+<section class="recommendations-page container">
+    <div class="recommendation-header">
+        <div>
+            <h1>Your recommendations</h1>
+            <p>Courses selected just for you based on your skills and profile.</p>
+        </div>
+        <button id="refresh-recommendations" class="button secondary" type="button">Refresh</button>
+    </div>
+
+    <section class="recommendation-panel">
+        <div class="info-box">
+            <h2>Based on your skills</h2>
+            <p class="page-note">Personalized courses are generated from your profile skills. You can also refresh this list anytime.</p>
+        </div>
+    </section>
+
+    <div id="recommendations-grid" class="course-grid"></div>
+    <div id="recommendations-empty" class="page-note"></div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/recommendations.js"></script>
+{% endblock %}

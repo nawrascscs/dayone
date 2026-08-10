@@ -4,20 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day One Learning Hub</title>
-    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    {% block extra_css %}{% endblock %}
     <script src="/static/js/app.js" defer></script>
+    {% block extra_js %}{% endblock %}
 </head>
 <body>
     <header class="site-header">
         <div class="container header-content">
             <a class="brand" href="/">Day One</a>
-            <nav>
-                <a id="nav-home" href="/">Home</a>
-                <a id="nav-register" href="/register">Register</a>
-                <a id="nav-login" href="/login">Login</a>
-                <a id="nav-profile" href="/profile">Profile</a>
-                <button id="nav-logout" class="button secondary" type="button">Logout</button>
-            </nav>
+            <div class="nav-actions">
+                <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+                <nav class="site-nav">
+                    <a id="nav-home" href="/">Home</a>
+                    <a id="nav-courses" href="/courses">Courses</a>
+                    <a id="nav-recommendations" href="/recommendations">Recommendations</a>
+                    <a id="nav-register" href="/register">Register</a>
+                    <a id="nav-login" href="/login">Login</a>
+                    <a id="nav-profile" href="/profile">Profile</a>
+                    <button id="nav-logout" class="button secondary nav-logout" type="button">Logout</button>
+                </nav>
+            </div>
         </div>
     </header>
 

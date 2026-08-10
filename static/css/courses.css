@@ -1,0 +1,108 @@
+.course-actions,
+.filter-bar {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-actions {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.course-search-input {
+    flex: 1;
+}
+
+.course-grid .course-card {
+    min-height: 220px;
+}
+
+.course-card .course-meta {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.course-card .badge-row {
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
+
+.course-sidebar h2,
+.related-heading {
+    margin-top: 0;
+}
+
+.skill-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.instructor-card,
+.related-card {
+    gap: 0.75rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.instructor-card p,
+.related-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.recommendation-panel {
+    gap: 1rem;
+}
+
+.recommendation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.recommendation-header h1 {
+    margin: 0;
+}
+
+.badge.explanation {
+    background: #fef9c3;
+    color: #92400e;
+}
+
+.info-box {
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border);
+    background: #ffffff;
+}
+
+.course-description {
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.course-details-grid {
+    grid-template-columns: 2.2fr 0.95fr;
+}
+
+.course-details-grid .course-sidebar {
+    position: sticky;
+    top: 1rem;
+}
+
+@media (max-width: 860px) {
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-details-grid {
+        grid-template-columns: 1fr;
+    }
+}

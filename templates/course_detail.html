@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/courses.css" />
+{% endblock %}
+
+{% block content %}
+<section class="course-details-page container">
+    <div class="page-intro">
+        <h1>Course details</h1>
+        <p>Get the full course summary, requirements, instructor details, and recommendations.</p>
+    </div>
+
+    <div class="course-details-grid">
+        <div class="course-overview">
+            <div class="course-header">
+                <h1 id="course-title">Loading course...</h1>
+                <p id="course-instructor" class="info-note"></p>
+                <div id="course-tags" class="skill-chip-row"></div>
+            </div>
+
+            <div class="course-description" id="course-description"></div>
+
+            <section class="recommendation-panel">
+                <h2>Related courses</h2>
+                <div id="related-courses" class="related-grid"></div>
+            </section>
+        </div>
+
+        <aside class="course-sidebar">
+            <div class="instructor-card">
+                <h3>Instructor</h3>
+                <p id="sidebar-instructor">Loading instructor information.</p>
+            </div>
+            <div class="info-box">
+                <h3>Skills needed</h3>
+                <div id="sidebar-skills" class="skill-chip-row"></div>
+            </div>
+            <button id="enroll-button" class="button primary" type="button">Enroll now</button>
+        </aside>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/course_detail.js"></script>
+{% endblock %}

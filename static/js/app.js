@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const skillCheckboxes = Array.from(document.querySelectorAll('.skill-checkbox'));
         const skillLevelSelectors = Array.from(document.querySelectorAll('.skill-level'));
 
+        const passwordInput = document.getElementById('password');
+        const showPasswordCheckbox = document.getElementById('show-password');
+
+        if (showPasswordCheckbox) {
+            showPasswordCheckbox.addEventListener('change', () => {
+                passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
+            });
+        }
+
         registerForm.addEventListener('submit', async (event) => {
             event.preventDefault();
 
@@ -22,31 +31,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document.getElementById('skills-input').value = JSON.stringify(selectedSkills);
 
+            const localPhone = event.target.phone.value.trim();
+            const countryCode = event.target.country_code ? event.target.country_code.value.trim() : '1';
             const payload = {
                 username: event.target.username.value.trim(),
                 email: event.target.email.value.trim(),
                 password: event.target.password.value,
-                phone: event.target.phone.value.trim(),
+                phone: localPhone,
+                country_code: countryCode,
                 age: event.target.age.value ? Number(event.target.age.value) : null,
                 major: event.target.major.value.trim(),
                 skills: selectedSkills
             };
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
-            const phoneRegex = /^\d{10}$/;
+            const phoneRegex = /^\d{8,12}$/;
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,12}$/;
 
             if (!emailRegex.test(payload.email)) {
                 alert('Please enter a valid email address with @ and a domain suffix like .com or .net.');
                 return;
             }
 
-            if (payload.phone && !phoneRegex.test(payload.phone)) {
-                alert('Phone number must contain exactly 10 digits.');
+            if (!passwordRegex.test(payload.password)) {
+                alert('Password must be 8-12 characters and include at least one uppercase letter and one number.');
                 return;
             }
 
-            if (payload.age !== null && (payload.age < 10 || payload.age > 110)) {
-                alert('Age must be between 10 and 110.');
+            if (payload.phone && !phoneRegex.test(payload.phone)) {
+                alert('Phone number must contain between 8 and 12 digits.');
+                return;
+            }
+
+            if (payload.age !== null && (payload.age < 10 || payload.age > 105)) {
+                alert('Age must be between 10 and 105.');
                 return;
             }
 
@@ -58,8 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
             if (response.ok) {
-                localStorage.setItem('authToken', data.token);
-                window.location.href = '/profile';
+                window.location.href = '/login';
             } else {
                 alert(data.error || 'Registration failed.');
             }
@@ -96,6 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLogout = document.getElementById('nav-logout');
 
     const homeCtaButtons = document.getElementById('home-cta-buttons');
+    const protectedPaths = ['/profile', '/courses', '/recommendations'];
+    const pathname = window.location.pathname;
+    const isCourseDetail = pathname.startsWith('/courses/') && pathname.split('/').length === 3;
+    const pageNeedsAuth = protectedPaths.includes(pathname) || isCourseDetail;
+
+    if (!authToken && pageNeedsAuth) {
+        window.location.href = '/login';
+        return;
+    }
 
     if (authToken) {
         if (navRegister) navRegister.style.display = 'none';

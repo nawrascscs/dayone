@@ -13,16 +13,45 @@
             <input id="email" name="email" type="email" required placeholder="you@example.com" />
 
             <label for="password">Password</label>
-            <input id="password" name="password" type="password" required />
+            <input id="password" name="password" type="password" minlength="8" maxlength="12" required />
+            <label class="show-password"><input id="show-password" type="checkbox" /> Show password</label>
+            <p class="field-note">Password must be 8-12 characters, include at least one uppercase letter and one number.</p>
 
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" inputmode="numeric" pattern="\d{10}" maxlength="10" placeholder="1234567890" />
+            <div class="field-row phone-row">
+                <div class="field-group short-field">
+                    <label for="country-code">Country code</label>
+                    <select id="country-code" name="country_code">
+                        <option value="1">+1</option>
+                        <option value="44">+44</option>
+                        <option value="61">+61</option>
+                        <option value="91">+91</option>
+                        <option value="353">+353</option>
+                        <option value="81">+81</option>
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" inputmode="numeric" pattern="\d{8,12}" maxlength="12" placeholder="12345678" />
+                </div>
+            </div>
 
             <label for="age">Age</label>
-            <input id="age" name="age" type="number" min="10" max="110" />
+            <input id="age" name="age" type="number" min="10" max="105" />
 
             <label for="major">Major</label>
-            <input id="major" name="major" type="text" />
+            <select id="major" name="major" required>
+                <option value="">Select an IT major</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Network Engineering">Network Engineering</option>
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="IT Project Management">IT Project Management</option>
+            </select>
+            <p class="field-note">Choose one major from IT-related options.</p>
 
             <div class="skill-section">
                 <div class="skill-section-header">
